@@ -1,0 +1,28 @@
+{
+  "mappings": {
+    "dynamic": true,
+    "fields": {
+      "bnName": {
+        "type": "string",
+        "analyzer": "lucene.bengali"
+      },
+      "enName": {
+        "type": "string",
+        "analyzer": "lucene.standard"
+      },
+      "searchMeta": {
+        "fields": {
+          "keyword": {
+            "type": "string",
+            "analyzer": "lucene.standard"
+          }
+        },
+        "type": "document"
+      },
+      "uid": {
+        "type": "string",
+        "analyzer": "lucene.keyword"
+      }
+    }
+  }
+}

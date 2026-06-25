@@ -1,0 +1,17 @@
+{
+  "mappings": {
+    "dynamic": false,
+    "fields": {
+      "searchMeta": {
+        "fields": {
+          "embedding": {
+            "dimensions": 384,
+            "similarity": "cosine",
+            "type": "knnVector"
+          }
+        },
+        "type": "document"
+      }
+    }
+  }
+}
