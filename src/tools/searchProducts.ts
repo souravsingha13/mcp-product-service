@@ -31,7 +31,7 @@ export async function searchProducts(args: SearchProductsInput): Promise<Product
       $match: {
         isActive: true,
         ...(categoryUid && { "category.uid": categoryUid }),
-        ...( (minPrice !== undefined || maxPrice !== undefined) && {
+        ...((minPrice !== undefined || maxPrice !== undefined) && {
           "variants.mrpPrice": {
             ...(minPrice !== undefined && { $gte: minPrice }),
             ...(maxPrice !== undefined && { $lte: maxPrice })
@@ -59,8 +59,7 @@ export async function searchProducts(args: SearchProductsInput): Promise<Product
             {
               text: {
                 query: query,
-                path: "uid",
-                boost: { value: 10 }
+                path: "uid"
               }
             }
           ],
@@ -73,7 +72,7 @@ export async function searchProducts(args: SearchProductsInput): Promise<Product
     {
       $match: {
         ...(categoryUid && { "category.uid": categoryUid }),
-        ...( (minPrice !== undefined || maxPrice !== undefined) && {
+        ...((minPrice !== undefined || maxPrice !== undefined) && {
           "variants.mrpPrice": {
             ...(minPrice !== undefined && { $gte: minPrice }),
             ...(maxPrice !== undefined && { $lte: maxPrice })
