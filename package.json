@@ -8,6 +8,7 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "dev": "tsx watch src/index.ts",
+    "chat": "tsx src/chatServer.ts",
     "lint": "eslint . --ext .ts"
   },
   "dependencies": {
