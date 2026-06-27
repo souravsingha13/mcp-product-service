@@ -7,6 +7,7 @@ import {
 } from '@modelcontextprotocol/sdk/types.js';
 import { mongodb } from './services/mongodb.js';
 import { searchProducts } from './tools/searchProducts.js';
+import { getProductDetails } from './tools/getProductDetails.js';
 
 /**
  * MCP Server Implementation
@@ -74,9 +75,9 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         };
 
       case 'get_product_details':
-        // TODO: Implement getProductDetails tool
+        const productDetails = await getProductDetails(args as any);
         return {
-          content: [{ type: 'text', text: 'Get product details tool not yet fully implemented.' }],
+          content: [{ type: 'text', text: JSON.stringify(productDetails, null, 2) }],
         };
 
       default:
